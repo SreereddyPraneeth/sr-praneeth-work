@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from "react";
-import { ArrowDown, Github, Linkedin } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -36,20 +35,30 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1E1E2F] text-white">
+    <div className="min-h-screen bg-[#0A0A0F] text-white overflow-x-hidden">
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#4FC3F7]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF9800]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#4FC3F7]/10 to-[#FF9800]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-[#1E1E2F]/90 backdrop-blur-sm z-50 border-b border-[#4FC3F7]/20">
+      <nav className="fixed top-0 w-full bg-[#0A0A0F]/80 backdrop-blur-xl z-50 border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold text-[#4FC3F7]">SPRK</div>
+            <div className="text-2xl font-bold bg-gradient-to-r from-[#4FC3F7] to-[#FF9800] bg-clip-text text-transparent">
+              SPRK
+            </div>
             <div className="hidden md:flex space-x-8">
               {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="hover:text-[#4FC3F7] transition-colors duration-300"
+                  className="relative text-white/80 hover:text-white transition-all duration-300 group"
                 >
                   {item}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] to-[#FF9800] transition-all duration-300 group-hover:w-full"></span>
                 </button>
               ))}
             </div>
@@ -57,55 +66,112 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/10 to-transparent"></div>
+      {/* Enhanced Hero Section */}
+      <section id="home" className="min-h-screen flex items-center justify-center relative">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#4FC3F7]">
-              <img 
-                src="/lovable-uploads/ae05a337-1186-4edf-b749-15375496380c.png" 
-                alt="Sree Reddy Praneeth Kumar Reddy"
-                className="w-full h-full object-cover"
-              />
+            {/* Profile Image with Enhanced Styling */}
+            <div className="relative mx-auto mb-8 w-40 h-40 group">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#4FC3F7] via-[#FF9800] to-[#4FC3F7] rounded-full animate-spin-slow opacity-75 blur-sm"></div>
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm">
+                <img 
+                  src="/lovable-uploads/ae05a337-1186-4edf-b749-15375496380c.png" 
+                  alt="Sree Reddy Praneeth Kumar Reddy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-[#4FC3F7] to-[#FF9800] rounded-full flex items-center justify-center animate-bounce">
+                <Sparkles className="w-4 h-4 text-white" />
+              </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              Hello, I'm
-              <br />
-              <span className="text-[#4FC3F7]">Sree Reddy</span>
-            </h1>
-            <div className="text-xl md:text-2xl mb-6 h-8">
-              <span className="text-[#FF9800]">{animatedTexts[currentText]}</span>
+
+            {/* Enhanced Typography */}
+            <div className="mb-6">
+              <p className="text-lg md:text-xl text-white/60 mb-2 font-light tracking-wide">
+                Hello, I'm
+              </p>
+              <h1 className="text-6xl md:text-8xl font-black mb-2 leading-none">
+                <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                  Sree
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-[#4FC3F7] via-[#00BCD4] to-[#FF9800] bg-clip-text text-transparent animate-pulse">
+                  Reddy
+                </span>
+              </h1>
             </div>
-            <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-gray-300">
-              Exploring the future of AI & ML through code, creativity, and collaboration.
+
+            {/* Animated Role Text */}
+            <div className="mb-8 h-16 flex items-center justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#4FC3F7]/20 to-[#FF9800]/20 blur-xl rounded-full"></div>
+                <h2 className="relative text-2xl md:text-4xl font-bold bg-gradient-to-r from-[#4FC3F7] to-[#FF9800] bg-clip-text text-transparent">
+                  {animatedTexts[currentText]}
+                </h2>
+              </div>
+            </div>
+
+            {/* Enhanced Description */}
+            <p className="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-white/70 leading-relaxed font-light">
+              Exploring the future of{" "}
+              <span className="text-[#4FC3F7] font-semibold">AI & ML</span>{" "}
+              through code, creativity, and collaboration. Building tomorrow's solutions today.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            {/* Enhanced CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
               <Button 
                 onClick={() => scrollToSection('about')}
-                className="bg-[#4FC3F7] hover:bg-[#4FC3F7]/80 text-black font-semibold px-8 py-3"
+                className="group relative bg-gradient-to-r from-[#4FC3F7] to-[#00BCD4] hover:from-[#00BCD4] hover:to-[#4FC3F7] text-black font-bold px-10 py-4 text-lg rounded-full transition-all duration-300 shadow-2xl hover:shadow-[#4FC3F7]/25 hover:scale-105"
               >
-                Get Started
+                <span className="relative z-10">Get Started</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#4FC3F7] to-[#00BCD4] rounded-full blur opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
               </Button>
               <Button 
                 variant="outline" 
-                className="border-[#4FC3F7] text-[#4FC3F7] hover:bg-[#4FC3F7] hover:text-black px-8 py-3"
+                className="group relative border-2 border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-[#4FC3F7]/50 px-10 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
               >
+                <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
                 Download CV
               </Button>
             </div>
+
+            {/* Social Links */}
+            <div className="flex justify-center space-x-6">
+              <a 
+                href="https://linkedin.com/in/spraneethkumar" 
+                className="group relative p-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#4FC3F7]/50 hover:bg-[#4FC3F7]/10 transition-all duration-300 hover:scale-110"
+              >
+                <Linkedin className="w-6 h-6 text-white/70 group-hover:text-[#4FC3F7] transition-colors duration-300" />
+                <div className="absolute inset-0 bg-[#4FC3F7]/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </a>
+              <a 
+                href="https://github.com/SreereddyPraneeth" 
+                className="group relative p-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#FF9800]/50 hover:bg-[#FF9800]/10 transition-all duration-300 hover:scale-110"
+              >
+                <Github className="w-6 h-6 text-white/70 group-hover:text-[#FF9800] transition-colors duration-300" />
+                <div className="absolute inset-0 bg-[#FF9800]/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </a>
+            </div>
           </div>
         </div>
+
+        {/* Enhanced Scroll Indicator */}
         <button 
           onClick={() => scrollToSection('about')}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 group"
         >
-          <ArrowDown className="text-[#4FC3F7] w-8 h-8" />
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#4FC3F7] to-[#FF9800] rounded-full blur opacity-50 animate-pulse"></div>
+            <div className="relative p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/20 group-hover:border-[#4FC3F7]/50 transition-all duration-300">
+              <ArrowDown className="text-white w-6 h-6 animate-bounce group-hover:text-[#4FC3F7] transition-colors duration-300" />
+            </div>
+          </div>
         </button>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-[#252540]">
+      <section id="about" className="py-20 bg-gradient-to-b from-[#0A0A0F] to-[#1A1A2E]">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-[#4FC3F7]">About Me</h2>
