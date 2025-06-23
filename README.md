@@ -1,4 +1,4 @@
-# Praneeth POrfolio
+# Praneeth Portfolio
 
 
 
