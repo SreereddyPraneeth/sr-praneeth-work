@@ -6,16 +6,66 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Github } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
+    setIsLoading(true);
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Praneeth', // Your name
+      };
+
+      await emailjs.send(
+        'service_idekzkh', // Your service ID
+        'template_mu4gsgy', // Your template ID
+        templateParams,
+        'ksq50eDnV0TTyXxzM' // Your public key
+      );
+
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to Send Message",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -66,17 +116,26 @@ const ContactSection = () => {
             <CardContent>
               <form onSubmit={handleContactSubmit} className="space-y-4">
                 <Input 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Your Name" 
                   className="bg-[#252540] border-[#4FC3F7]/20 text-white placeholder:text-gray-400"
                   required
                 />
                 <Input 
-                  type="email" 
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="Your Email" 
                   className="bg-[#252540] border-[#4FC3F7]/20 text-white placeholder:text-gray-400"
                   required
                 />
                 <Textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   placeholder="Your Message" 
                   rows={4}
                   className="bg-[#252540] border-[#4FC3F7]/20 text-white placeholder:text-gray-400"
@@ -84,9 +143,10 @@ const ContactSection = () => {
                 />
                 <Button 
                   type="submit" 
-                  className="w-full bg-[#4FC3F7] hover:bg-[#4FC3F7]/80 text-black font-semibold"
+                  disabled={isLoading}
+                  className="w-full bg-[#4FC3F7] hover:bg-[#4FC3F7]/80 text-black font-semibold disabled:opacity-50"
                 >
-                  Send Message
+                  {isLoading ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>
