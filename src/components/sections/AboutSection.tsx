@@ -1,22 +1,15 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-
 const AboutSection = () => {
-  return (
-    <section id="about" className="py-20 bg-gradient-to-b from-[#0A0A0F] to-[#1A1A2E]">
+  return <section id="about" className="py-20 bg-gradient-to-b from-[#0A0A0F] to-[#1A1A2E]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-8 text-[#4FC3F7]">About Me</h2>
+          <h2 className="font-bold mb-8 text-[#4FC3F7] text-2xl">About Me</h2>
           
           {/* Profile Image */}
           <div className="flex justify-center mb-8">
             <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[#4FC3F7]">
-              <AvatarImage 
-                src="https://i.postimg.cc/NjSFCF8P/photo-1.jpg" 
-                alt="Sree Reddy Profile Photo"
-                className="object-cover"
-              />
+              <AvatarImage src="https://i.postimg.cc/NjSFCF8P/photo-1.jpg" alt="Sree Reddy Profile Photo" className="object-cover" />
               <AvatarFallback className="bg-[#1E1E2F] text-[#4FC3F7] text-2xl font-bold">
                 SR
               </AvatarFallback>
@@ -64,8 +57,6 @@ const AboutSection = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
