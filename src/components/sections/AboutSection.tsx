@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
@@ -12,7 +13,7 @@ const AboutSection = () => {
           <div className="flex justify-center mb-8">
             <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[#4FC3F7]">
               <AvatarImage 
-                src="https://i.postimg.cc/RFd0Zyvt/My-Photo.jpg" 
+                src="https://i.postimg.cc/NjSFCF8P/photo-1.jpg" 
                 alt="Sree Reddy Profile Photo"
                 className="object-cover"
               />
