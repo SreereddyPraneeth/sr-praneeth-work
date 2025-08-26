@@ -1,18 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 const HeroSection = () => {
   return <section className="min-h-screen flex items-center justify-center pt-16 px-6">
       <div className="text-center max-w-4xl mx-auto">
-        {/* Profile Image */}
-        <div className="flex justify-center mb-8">
-          <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[#4FC3F7]">
-            <AvatarImage src="https://i.postimg.cc/7LhWMzsP/My-Photo.jpg" alt="Sree Reddy Profile Photo" className="object-cover" />
-            <AvatarFallback className="bg-[#1E1E2F] text-[#4FC3F7] text-2xl font-bold">
-              SR
-            </AvatarFallback>
-          </Avatar>
-        </div>
-        
         <div className="mb-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="text-white">Hi, I'm </span>
