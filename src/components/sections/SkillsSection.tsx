@@ -4,10 +4,10 @@ import { Badge } from "@/components/ui/badge";
 
 const SkillsSection = () => {
   const programmingSkills = [
-    { skill: 'Python', level: 85 },
     { skill: 'Java', level: 90 },
-    { skill: 'SQL', level: 70 },
-    { skill: 'HTML/CSS', level: 75 }
+    { skill: 'Python', level: 85 },
+    { skill: 'HTML/CSS', level: 75 },
+    { skill: 'SQL', level: 70 }
   ];
 
   const softSkills = [
