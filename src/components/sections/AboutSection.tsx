@@ -3,7 +3,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-[#0A0A0F] to-[#1A1A2E]">
+    <section id="about" className="pt-4 pb-20 bg-gradient-to-b from-[#0A0A0F] to-[#1A1A2E]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-bold mb-6 text-[#4FC3F7] text-2xl">About Me</h2>
