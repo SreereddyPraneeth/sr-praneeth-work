@@ -11,7 +11,7 @@ const AboutSection = () => {
           {/* Profile Image */}
           <div className="flex justify-center mb-6">
             <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[#4FC3F7]">
-              <AvatarImage src="https://i.postimg.cc/NjSFCF8P/photo-1.jpg" alt="Sree Reddy Profile Photo" className="object-cover" />
+              <AvatarImage src="https://i.postimg.cc/7LhWMzsP/My-Photo.jpg" alt="Sree Reddy Profile Photo" className="object-cover" />
               <AvatarFallback className="bg-[#1E1E2F] text-[#4FC3F7] text-2xl font-bold">
                 SR
               </AvatarFallback>
