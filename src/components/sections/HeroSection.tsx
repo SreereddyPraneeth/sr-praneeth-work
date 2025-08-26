@@ -5,7 +5,7 @@ const HeroSection = () => {
         <div className="mb-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="text-white">Hi, I'm </span>
-            <span className="text-[#4FC3F7]">S Praneeth Kumar Reddy</span>
+            <span className="text-[#4FC3F7]">Sree Reddy Praneeth Kumar Reddy</span>
           </h1>
           <h2 className="text-2xl md:text-3xl text-[#FF9800] mb-6">
             Computer Science Engineering Student

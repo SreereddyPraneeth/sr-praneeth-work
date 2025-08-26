@@ -19,6 +19,11 @@ const ProjectsSection = () => {
       title: "Bed Wet Monitoring System",
       description: "Developed an IoT-based Smart Bed Wet Monitoring System using moisture sensors with instant mobile alerts to caregivers",
       technologies: ["IoT", "Sensors", "Mobile Notifications", "Arduino"]
+    },
+    {
+      title: "Health & Fitness Calculator",
+      description: "A responsive web that calculates BMI, BMR, and 1-Rep Max for quick fitness insights. Built with HTML, CSS, and JavaScript, featuring responsive design, real-time form handling, and fitness formula integration.",
+      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"]
     }
   ];
 
