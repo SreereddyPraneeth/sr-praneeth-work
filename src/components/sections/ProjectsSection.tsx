@@ -6,19 +6,19 @@ import { Button } from "@/components/ui/button";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Smart Bed Wet Monitoring System",
-      description: "IoT prototype using Arduino, sensors, and mobile alerts for real-time monitoring",
-      technologies: ["Arduino", "IoT", "Sensors"]
+      title: "Brain Tumor Detection",
+      description: "Built a Brain Tumor Detection system using CNNs to classify MRI images into glioma, meningioma, pituitary tumor, and no tumor categories with Flask web interface",
+      technologies: ["Python", "CNN", "Flask", "Machine Learning"]
     },
     {
-      title: "Smart Drowsiness Detection",
-      description: "Python-based system using OpenCV and CNN for real-time eye tracking and alerts",
-      technologies: ["Python", "OpenCV", "CNN"]
+      title: "Smart Drowsiness Detection and Alert System",
+      description: "Developed a real-time drowsiness detection system using computer vision to monitor facial features and send automated email notifications",
+      technologies: ["Python", "OpenCV", "Computer Vision", "Email Integration"]
     },
     {
-      title: "Health Fitness Calculator",
-      description: "Static HTML-based application for client-side BMI and BMR calculations",
-      technologies: ["HTML", "CSS", "JavaScript"]
+      title: "Bed Wet Monitoring System",
+      description: "Developed an IoT-based Smart Bed Wet Monitoring System using moisture sensors with instant mobile alerts to caregivers",
+      technologies: ["IoT", "Sensors", "Mobile Notifications", "Arduino"]
     }
   ];
 
